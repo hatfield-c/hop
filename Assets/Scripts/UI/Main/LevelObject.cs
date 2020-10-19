@@ -5,8 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelX", menuName = "UI Level")]
 public class LevelObject : ScriptableObject
 {
+    [Header("UI")]
     public Color color;
     public string number;
-    public Loader.Scene stage;
+
+    [Header("Parameters")]
+    public Loader.StageScene stage;
     public GameObject levelGeometry;
+    public GameObject spawnPoint;
+    public GameObject goalZone;
+
+    [Header("Next Level")]
+    public LevelObject nextLevel;
+
 }

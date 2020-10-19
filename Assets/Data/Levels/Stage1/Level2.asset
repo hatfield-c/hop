@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0e694e12c238304891af6198c12109c, type: 3}
-  m_Name: Level1
+  m_Name: Level2
   m_EditorClassIdentifier: 
-  color: {r: 0.1764706, g: 0.59607846, b: 0.85490197, a: 1}
-  number: 1
+  color: {r: 0.05882353, g: 0.7254902, b: 0.69411767, a: 1}
+  number: 2
   stage: 0
-  levelGeometry: {fileID: 6621820817566160649, guid: 9c36cf616996d004f94d1bd6723c16f8,
+  levelGeometry: {fileID: 1474370812387138923, guid: 7b6d65f49f6b521409241aa5880a7455,
     type: 3}
   spawnPoint: {fileID: 8036989871667263675, guid: d95c943f26ff48140b6e21a6132b5895,
     type: 3}

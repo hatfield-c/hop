@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class SessionData {
 
-    protected Loader.Scene currentScene;
-    protected Loader.Scene nextScene;
+    protected LevelObject currentLevel;
+    protected LevelObject nextLevel;
 
     public SessionData() {
 
+    }
+
+    public LevelObject GetNextLevel() {
+        return this.nextLevel;
     }
 }
