@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "LevelX", menuName = "UI Level")]
 public class LevelObject : ScriptableObject
@@ -10,12 +11,9 @@ public class LevelObject : ScriptableObject
     public string number;
 
     [Header("Parameters")]
-    public Loader.StageScene stage;
-    public GameObject levelGeometry;
-    public GameObject spawnPoint;
-    public GameObject goalZone;
-
-    [Header("Next Level")]
+    public Session.Stages stage;
+    public Object scene;
     public LevelObject nextLevel;
+   
 
 }

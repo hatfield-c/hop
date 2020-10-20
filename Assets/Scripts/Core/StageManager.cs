@@ -8,7 +8,7 @@ public class StageManager : MonoBehaviour {
 
     void Start()
     {
-        for (int i = 0; i < 50000; i++) {
+        for (int i = 0; i < 35000; i++) {
             GameObject del = Instantiate(test);
             Destroy(del);
         }

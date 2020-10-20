@@ -16,7 +16,7 @@ public class LevelUI : MonoBehaviour
     [SerializeField] protected float opacity = 1f;
 
     public void LoadLevel() {
-        Loader.Load(levelData);
+        Session.StartLevel(this.levelData);
     }
 
     void Start()

@@ -15,9 +15,5 @@ MonoBehaviour:
   color: {r: 0.05882353, g: 0.7254902, b: 0.69411767, a: 1}
   number: 2
   stage: 0
-  levelGeometry: {fileID: 1474370812387138923, guid: 7b6d65f49f6b521409241aa5880a7455,
-    type: 3}
-  spawnPoint: {fileID: 8036989871667263675, guid: d95c943f26ff48140b6e21a6132b5895,
-    type: 3}
-  goalZone: {fileID: 1661872479525338420, guid: 250b71324368d17469e8911a5b6c536a,
-    type: 3}
+  scene: {fileID: 102900000, guid: 700f61b81ee3f1a47a01661b9f0bfb0e, type: 3}
+  nextLevel: {fileID: 11400000, guid: 0fb331093f3573640840b2436e665d2d, type: 2}

@@ -5,13 +5,20 @@ using UnityEngine;
 public class SessionData {
 
     protected LevelObject currentLevel;
-    protected LevelObject nextLevel;
 
     public SessionData() {
 
     }
 
+    public LevelObject GetLevel() {
+        return this.currentLevel;
+    }
+
+    public void SetLevel(LevelObject level) {
+        this.currentLevel = level;
+    }
+
     public LevelObject GetNextLevel() {
-        return this.nextLevel;
+        return this.currentLevel.nextLevel;
     }
 }
