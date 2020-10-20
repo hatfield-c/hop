@@ -17,6 +17,8 @@ public class LevelUIController : MenuController
     }
 
     public void NextLevel() {
+        Time.timeScale = 1f;
+
         Session.NextLevel();
     }
 

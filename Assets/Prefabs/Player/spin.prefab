@@ -124,11 +124,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  shellCount: 12
+  shellCount: 3
+  uses: 3
   startAngle: 30
   turnForce: 0.1
   bounceForce: 1000
   cooldown: 0.08
+  startPosition: {x: 0, y: 10, z: 0}
   body: {fileID: 6052657347019254545}
   shellPrefab: {fileID: 8060182999572356539, guid: 1019d9a2c1078d0419c564c12f3601a7,
     type: 3}
