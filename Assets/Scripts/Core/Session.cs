@@ -20,6 +20,10 @@ public static class Session
         Session.initialized = true;
     }
 
+    public static void ReturnToMainMenu() {
+        Loader.LoadScene(Loader.CoreScenes.MainMenu.ToString());
+    }
+
     public static void StartLevel(LevelObject levelData) {
         LevelObject emptyLevel = ScriptableObject.CreateInstance<LevelObject>();
         emptyLevel.nextLevel = levelData;
@@ -36,7 +40,7 @@ public static class Session
         }
 
         Session.data.SetLevel(next);
-        Loader.Load(Session.data.GetLevel());
+        Loader.LoadLevel(Session.data.GetLevel());
     }
 
     public static SessionData GetData() {

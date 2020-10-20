@@ -53,6 +53,10 @@ public class MenuController : MonoBehaviour
 
     }
 
+    public virtual void ReturnToMainMenu() {
+        Session.ReturnToMainMenu();
+    }
+
     void Awake() {
         CanvasScaler scaler = this.GetComponent<CanvasScaler>();
 
@@ -60,8 +64,6 @@ public class MenuController : MonoBehaviour
 
         this.enterPosition = new Vector3(0, Screen.height * this.screenRatio.y, 0);
         this.exitPosition = new Vector3(0, -Screen.height * this.screenRatio.y, 0);
-
-        //Debug.Log(this.canvasRect.rect.height);
 
         if (this.menuStates.Count > 0) {
             foreach(MenuState state in this.menuStates) {
@@ -105,7 +107,7 @@ public class MenuController : MonoBehaviour
             menuTransform,
             end,
             this.animateTime
-        ).setOnComplete(followUp);
+        ).setOnComplete(followUp).setIgnoreTimeScale(true);
     }
 
     protected void Empty() { }

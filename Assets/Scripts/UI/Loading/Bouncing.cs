@@ -22,7 +22,7 @@ public class Bouncing : MonoBehaviour
             () => {
                 this.GoLeft();
             }
-        );
+        ).setIgnoreTimeScale(true);
     }
 
     void GoLeft() {
@@ -34,7 +34,7 @@ public class Bouncing : MonoBehaviour
             () => {
                 this.GoRight();
             }    
-        );
+        ).setIgnoreTimeScale(true);
     }
 
 }

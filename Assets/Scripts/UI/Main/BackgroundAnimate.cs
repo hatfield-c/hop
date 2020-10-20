@@ -67,7 +67,7 @@ public class BackgroundAnimate : MonoBehaviour
                 this.RandomizeTarget();
                 this.Animate();
             }
-        );
+        ).setIgnoreTimeScale(true);
     }
 
     void Awake()
