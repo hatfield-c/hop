@@ -4,20 +4,43 @@ using UnityEngine;
 
 public class LevelUIController : MenuController
 {
+    [Header("Level References")]
+    [SerializeField] ReferenceManager references = null;
+    [SerializeField] MenuState pauseState = null;
+    [SerializeField] MenuState playState = null;
+    [SerializeField] MenuState finishState = null;
+
     public override void ReturnToMainMenu() {
         Time.timeScale = 1f;
 
         base.ReturnToMainMenu();
     }
 
-    public void PauseGame(MenuState pauseState) {
-        Time.timeScale = 0f;
-
-        this.ChangeState(pauseState);
+    public void NextLevel() {
+        Session.NextLevel();
     }
 
-    public void ResumeGame(MenuState playState) {
-        this.ChangeState(playState);
+    public void FinishLevel() {
+        Time.timeScale = 0f;
+
+        this.ChangeState(this.finishState);
+    }
+
+    public void RestartLevel() {
+        this.references.levelManager.ResetLevel();
+        this.ChangeState(this.playState);
+
+        Time.timeScale = 1f;
+    }
+
+    public void PauseGame() {
+        Time.timeScale = 0f;
+
+        this.ChangeState(this.pauseState);
+    }
+
+    public void ResumeGame() {
+        this.ChangeState(this.playState);
 
         Time.timeScale = 1f;
     }

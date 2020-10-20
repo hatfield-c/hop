@@ -36,7 +36,8 @@ public static class Session
         LevelObject next = Session.data.GetNextLevel();
 
         if(next == null) {
-
+            Session.ReturnToMainMenu();
+            return;
         }
 
         Session.data.SetLevel(next);

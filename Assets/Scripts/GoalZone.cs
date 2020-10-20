@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GoalZone : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] protected ReferenceManager references = null;
+
     private void OnTriggerEnter(Collider other) {
         Spin spin = other.gameObject.GetComponent<Spin>();
 
@@ -12,6 +15,6 @@ public class GoalZone : MonoBehaviour
         }
 
         Debug.Log("Success!");
-        spin.Reset();
+        this.references.uiController.FinishLevel();
     }
 }
