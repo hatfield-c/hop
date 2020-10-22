@@ -275,6 +275,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5940641582652040193, guid: 11b709c35aa9e9e4eb4a24a7a74bf43c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8867164705665875253}
+    - target: {fileID: 5940641582652040193, guid: 11b709c35aa9e9e4eb4a24a7a74bf43c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 8383143021322418396, guid: 11b709c35aa9e9e4eb4a24a7a74bf43c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -647,6 +657,11 @@ PrefabInstance:
       propertyPath: menuStates.Array.data[1]
       value: 
       objectReference: {fileID: 8620436578857179777}
+    - target: {fileID: 2399278116660150486, guid: 6e842352d6120a0478ba81281c0a8d87,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2536664466858670309, guid: 6e842352d6120a0478ba81281c0a8d87,
         type: 3}
       propertyPath: menuStates.Array.size

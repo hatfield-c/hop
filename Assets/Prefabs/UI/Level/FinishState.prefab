@@ -795,6 +795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82191e3e8af065a48be77169faa15bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactList: []
+  interactList:
+  - {fileID: 858157647771864204}
+  - {fileID: 5217789222972567086}
   id: finish
   rectTransform: {fileID: 5932064054246745177}
