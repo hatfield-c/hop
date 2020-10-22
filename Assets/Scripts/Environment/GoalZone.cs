@@ -8,9 +8,9 @@ public class GoalZone : MonoBehaviour
     [SerializeField] protected ReferenceManager references = null;
 
     private void OnTriggerEnter(Collider other) {
-        Spin spin = other.gameObject.GetComponent<Spin>();
+        Hopper hopper = other.gameObject.GetComponent<Hopper>();
 
-        if(spin == null) {
+        if(hopper == null) {
             return;
         }
 

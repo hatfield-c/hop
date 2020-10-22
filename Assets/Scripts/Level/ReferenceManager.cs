@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReferenceManager : MonoBehaviour
 {
     [Header("References")]
-    public Spin player;
+    public Hopper player;
     public LevelUIController uiController;
     public LevelManager levelManager;
 }

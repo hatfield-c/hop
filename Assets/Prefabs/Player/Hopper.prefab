@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2672188547603274215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1996045031536205362}
+  m_Layer: 0
+  m_Name: ShellContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1996045031536205362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2672188547603274215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6052657347019254557}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6052657347019254551
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,9 +43,9 @@ GameObject:
   - component: {fileID: 6052657347019254547}
   - component: {fileID: 6052657347019254544}
   - component: {fileID: 6052657347019254545}
-  - component: {fileID: 6052657347019254550}
+  - component: {fileID: 7978965863562309495}
   m_Layer: 0
-  m_Name: spin
+  m_Name: Hopper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,9 +59,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6052657347019254551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.063055515, y: 2.98, z: -0.03644991}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1996045031536205362}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -111,7 +142,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6052657347019254550
+--- !u!114 &7978965863562309495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,19 +151,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6052657347019254551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556829488ec5d8044a4d5e4304f4ea4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d1fa7fd0f6b37146820a38fd64cb826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
-  shellCount: 3
   uses: 3
-  startAngle: 30
   turnForce: 0.1
   bounceForce: 1000
   cooldown: 0.08
-  startPosition: {x: 0, y: 10, z: 0}
   body: {fileID: 6052657347019254545}
-  shellPrefab: {fileID: 8060182999572356539, guid: 1019d9a2c1078d0419c564c12f3601a7,
-    type: 3}
-  canBounce: 1
-  shellList: []
+  shellContainer: {fileID: 1996045031536205362}
