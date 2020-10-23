@@ -16,4 +16,10 @@ MonoBehaviour:
   number: 3
   stage: 0
   scene: {fileID: 102900000, guid: 36b1eb34fef7aaf469a13959e8c4435e, type: 3}
+  hazards:
+    death: 0
+    bounce: 0
+    breakable: 0
+    moving: 0
   nextLevel: {fileID: 0}
+  isLastLevel: 1

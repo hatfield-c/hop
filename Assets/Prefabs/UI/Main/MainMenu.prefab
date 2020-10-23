@@ -2021,6 +2021,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel_GameFinished
       objectReference: {fileID: 0}
+    - target: {fileID: 5781782390515368518, guid: ebc46226c8df950409b4d2e3253660ce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6166643615795896822, guid: ebc46226c8df950409b4d2e3253660ce,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
