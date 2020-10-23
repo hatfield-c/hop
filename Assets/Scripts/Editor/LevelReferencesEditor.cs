@@ -20,5 +20,9 @@ public class LevelReferencesEditor : Editor
                 referenceManager.resetables.Add(resettable);
             }
         }
+
+        if (GUI.changed) {
+            EditorUtility.SetDirty(target);
+        }
     }
 }

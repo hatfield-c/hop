@@ -12,7 +12,9 @@ public class LevelManager : MonoBehaviour
     public Action loseAction;
 
     public void ResetLevel() {
-        this.references.player.ResetObject();
+        foreach(AbstractResettable resettable in this.references.resetables) {
+            resettable.ResetObject();
+        }
     }
 
     public void WinLevel() {
