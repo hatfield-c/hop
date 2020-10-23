@@ -5,6 +5,13 @@ using UnityEngine;
 
 public static class Session
 {
+    public enum TransitionCause {
+        ERROR,
+        NextLevel,
+        LevelExit,
+        StageComplete
+    };
+
     private static SessionData data = null;
     private static bool initialized = false;
 
@@ -20,7 +27,9 @@ public static class Session
         Session.initialized = true;
     }
 
-    public static void ReturnToMainMenu() {
+    public static void ReturnToMainMenu(Session.TransitionCause cause) {
+        Session.data.SetTransitionCause(cause);
+        Session.data.SetLevel(null);
         Loader.LoadScene(Loader.CoreScenes.MainMenu.ToString());
     }
 
@@ -36,10 +45,11 @@ public static class Session
         LevelObject next = Session.data.GetNextLevel();
 
         if(next == null) {
-            Session.ReturnToMainMenu();
+            Session.ReturnToMainMenu(Session.TransitionCause.StageComplete);
             return;
         }
 
+        Session.data.SetTransitionCause(Session.TransitionCause.NextLevel);
         Session.data.SetLevel(next);
         Loader.LoadLevel(Session.data.GetLevel());
     }

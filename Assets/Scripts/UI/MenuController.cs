@@ -57,15 +57,15 @@ public class MenuController : MonoBehaviour
 
     }
 
-    public virtual void ReturnToMainMenu() {
-        Session.ReturnToMainMenu();
+    public virtual void ReturnToMainMenu(Session.TransitionCause cause) {
+        Session.ReturnToMainMenu(cause);
     }
 
     void Awake() {
         this.OnAwake();
     }
 
-    protected virtual void OnAwake() {
+    protected virtual void OnAwake(MenuState startState = null) {
         CanvasScaler scaler = this.GetComponent<CanvasScaler>();
 
         this.screenRatio = new Vector2(1, scaler.referenceResolution.x / Screen.width);
@@ -79,7 +79,11 @@ public class MenuController : MonoBehaviour
                 this.DisableState(state);
             }
 
-            this.ChangeState(this.menuStates[0]);
+            if (startState != null) {
+                this.ChangeState(startState);
+            } else {
+                this.ChangeState(this.menuStates[0]);
+            }
         }
     }
 

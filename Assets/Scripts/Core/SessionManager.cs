@@ -5,7 +5,7 @@ using UnityEngine;
 public class SessionManager : MonoBehaviour
 {
 
-    void Start()
+    void Awake()
     {
         Session.Init();
     }

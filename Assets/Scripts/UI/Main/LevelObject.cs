@@ -31,6 +31,7 @@ public class LevelObject : ScriptableObject
     public Object scene;
     public HazardTypes hazards = new HazardTypes();
     public LevelObject nextLevel;
+    public bool isLastLevel = false;
 
     public string GetSceneName() {
         return ((SceneAsset)this.scene).name;

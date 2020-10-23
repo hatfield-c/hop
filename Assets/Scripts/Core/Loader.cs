@@ -38,7 +38,6 @@ public static class Loader
         LeanTween.delayedCall(
             0.01f,
             () => {
-                Debug.Log("Loading Screen...");
                 SceneManager.LoadScene(Loader.CoreScenes.Loading.ToString());
 
                 Loader.isLoading = true;
@@ -46,8 +45,6 @@ public static class Loader
                 LeanTween.delayedCall(
                     0.01f,
                     () => {
-                        Debug.Log("Loading Stage: " + sceneName);
-
                         SceneManager.LoadSceneAsync(sceneName);
                     }
                 ).setIgnoreTimeScale(true);

@@ -14,10 +14,10 @@ public class LevelUIController : MenuController
     [Header("Parameters")]
     [SerializeField] protected float loseFadeTime = 1f;
 
-    public override void ReturnToMainMenu() {
+    public void ReturnToMainMenu() {
         Time.timeScale = 1f;
 
-        base.ReturnToMainMenu();
+        base.ReturnToMainMenu(Session.TransitionCause.LevelExit);
     }
 
     public void NextLevel() {
