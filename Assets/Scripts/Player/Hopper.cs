@@ -58,6 +58,12 @@ public class Hopper : MonoBehaviour
         this.body.AddForce(Vector3.up);
     }
 
+    public void Die() {
+        this.Reset();
+
+        this.loseAction?.Invoke();
+    }
+
     public bool CanBeBounced() {
         return this.canBounce;
     }
@@ -86,9 +92,7 @@ public class Hopper : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
-        this.Reset();
-
-        this.loseAction?.Invoke();
+        this.Die();
     }
 
     void Start() {
