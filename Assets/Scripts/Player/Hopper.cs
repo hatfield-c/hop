@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Hopper : MonoBehaviour
+public class Hopper : MonoBehaviour, ResetableInterface
 {
     [Header("Parameters")]
     [SerializeField] protected int uses = 3;
@@ -20,7 +20,7 @@ public class Hopper : MonoBehaviour
     [SerializeField] protected Rigidbody body = null;
     [SerializeField] protected Transform shellContainer = null;
 
-    public Action loseAction;
+    public Action loseAction = null;
 
     protected bool canBounce = true;
 
@@ -46,7 +46,7 @@ public class Hopper : MonoBehaviour
         );
     }
 
-    public void Reset() {
+    public void ResetObject() {
         this.transform.position = this.startPosition;
         this.transform.rotation = Quaternion.identity;
         this.body.velocity = Vector3.zero;
@@ -59,8 +59,6 @@ public class Hopper : MonoBehaviour
     }
 
     public void Die() {
-        this.Reset();
-
         this.loseAction?.Invoke();
     }
 
@@ -98,7 +96,7 @@ public class Hopper : MonoBehaviour
     void Start() {
         this.startPosition = this.transform.position;
         this.BuildShell();
-        this.Reset();
+        this.ResetObject();
     }
 
     void Update()

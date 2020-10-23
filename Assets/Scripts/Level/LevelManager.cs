@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,11 @@ public class LevelManager : MonoBehaviour
     [Header("References")]
     [SerializeField] protected ReferenceManager references = null;
 
+    protected Action winAction;
+    protected Action loseAction;
+
     public void ResetLevel() {
-        this.references.player.Reset();
+        this.references.player.ResetObject();
     }
 
     public void WinLevel() {
@@ -27,14 +31,19 @@ public class LevelManager : MonoBehaviour
         );
     }
 
+    void Start() {
+        this.references.player.loseAction = this.loseAction;
+        this.references.goalZone.winAction = this.winAction;
+    }
+
     void OnEnable() {
-        this.references.goalZone.winAction += this.WinLevel;
-        this.references.player.loseAction += this.LoseReset;
+        this.winAction += this.WinLevel;
+        this.loseAction += this.LoseReset;
     }
 
     void OnDisable() {
-        this.references.goalZone.winAction -= this.WinLevel;
-        this.references.player.loseAction -= this.LoseReset;
+        this.winAction -= this.WinLevel;
+        this.loseAction -= this.LoseReset;
     }
 
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GoalZone : MonoBehaviour
 {
-    public Action winAction;
+    public Action winAction = null;
 
     private void OnTriggerEnter(Collider other) {
         Hopper hopper = other.gameObject.GetComponent<Hopper>();
