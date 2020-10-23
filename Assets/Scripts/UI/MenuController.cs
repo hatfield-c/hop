@@ -37,6 +37,7 @@ public class MenuController : MonoBehaviour
                         () => {
                             this.EnableState(targetState);
                             this.currentState = targetState;
+                            this.currentState.OnTransitionTo();
                         }
                     );
                 }
@@ -61,6 +62,10 @@ public class MenuController : MonoBehaviour
     }
 
     void Awake() {
+        this.OnAwake();
+    }
+
+    protected virtual void OnAwake() {
         CanvasScaler scaler = this.GetComponent<CanvasScaler>();
 
         this.screenRatio = new Vector2(1, scaler.referenceResolution.x / Screen.width);
@@ -69,17 +74,13 @@ public class MenuController : MonoBehaviour
         this.exitPosition = new Vector3(0, -Screen.height * this.screenRatio.y, 0);
 
         if (this.menuStates.Count > 0) {
-            foreach(MenuState state in this.menuStates) {
+            foreach (MenuState state in this.menuStates) {
                 state.GetPanelTransform().anchoredPosition3D = this.exitPosition;
                 this.DisableState(state);
             }
 
             this.ChangeState(this.menuStates[0]);
         }
-    }
-
-    void Update() {
-        
     }
 
     protected void EnableState(MenuState state) {

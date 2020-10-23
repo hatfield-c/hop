@@ -7,10 +7,14 @@ using UnityEngine;
 public class Hopper : MonoBehaviour
 {
     [Header("Parameters")]
-    public int uses = 3;
-    public float turnForce = 0.1f;
-    public float bounceForce = 1f;
-    public float cooldown = 0.08f;
+    [SerializeField] protected int uses = 3;
+    [SerializeField] protected float turnForce = 0.1f;
+    [SerializeField] protected float bounceForce = 1f;
+    [SerializeField] protected float cooldown = 0.08f;
+
+    [Header("Metadata")]
+    [SerializeField] protected Sprite previewImage = null;
+    [SerializeField] protected string previewName = "";
 
     [Header("References")]
     [SerializeField] protected Rigidbody body = null;
@@ -56,6 +60,14 @@ public class Hopper : MonoBehaviour
 
     public bool CanBeBounced() {
         return this.canBounce;
+    }
+
+    public Sprite GetPreviewImage() {
+        return this.previewImage;
+    }
+
+    public string GetPreviewName() {
+        return this.previewName;
     }
 
     protected void BuildShell() {

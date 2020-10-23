@@ -20,6 +20,13 @@ public class LevelManager : MonoBehaviour
         this.ResetLevel();
     }
 
+    public float GetDistance() {
+        return Vector3.Distance(
+            this.references.player.transform.position,
+            this.references.goalZone.transform.position
+        );
+    }
+
     void OnEnable() {
         this.references.goalZone.winAction += this.WinLevel;
         this.references.player.loseAction += this.LoseReset;

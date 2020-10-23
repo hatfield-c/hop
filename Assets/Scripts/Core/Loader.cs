@@ -24,9 +24,7 @@ public static class Loader
     }
 
     public static void LoadLevel(LevelObject levelData) {
-        string sceneName = ((SceneAsset)levelData.scene).name;
-
-        Loader.LoadScene(sceneName);
+        Loader.LoadScene(levelData.GetSceneName());
     }
 
     public static void LoadScene(string sceneName) {

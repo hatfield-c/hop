@@ -243,6 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5be37cedf22fdb45a5be2149e2e1535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundPanel: {fileID: 0}
+  backgroundPanel: {fileID: 6612667064384459168}
   text: {fileID: 1169750766215830839}
   fadeLength: 1.3

@@ -22,4 +22,5 @@ public class MenuState : MonoBehaviour
         return this.rectTransform;
     }
 
+    public virtual void OnTransitionTo() { }
 }

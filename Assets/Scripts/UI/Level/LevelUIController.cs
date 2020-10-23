@@ -56,4 +56,14 @@ public class LevelUIController : MenuController
 
         Time.timeScale = 1f;
     }
+
+    public ReferenceManager GetReferenceManager() {
+        return this.references;
+    }
+
+    void Awake() {
+        base.OnAwake();
+
+        Time.timeScale = 0f;
+    }
 }
