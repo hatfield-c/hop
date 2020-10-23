@@ -9,5 +9,5 @@ public class ReferenceManager : MonoBehaviour
     public GoalZone goalZone;
     public LevelUIController uiController;
     public LevelManager levelManager;
-    public List<ResetableInterface> resetables = new List<ResetableInterface>();
+    public List<AbstractResettable> resetables = new List<AbstractResettable>();
 }

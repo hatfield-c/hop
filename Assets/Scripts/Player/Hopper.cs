@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Hopper : MonoBehaviour, ResetableInterface
-{
+public class Hopper : AbstractResettable {
     [Header("Parameters")]
     [SerializeField] protected int uses = 3;
     [SerializeField] protected float turnForce = 0.1f;
@@ -46,7 +45,7 @@ public class Hopper : MonoBehaviour, ResetableInterface
         );
     }
 
-    public void ResetObject() {
+    public override void ResetObject() {
         this.transform.position = this.startPosition;
         this.transform.rotation = Quaternion.identity;
         this.body.velocity = Vector3.zero;

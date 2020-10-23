@@ -8,8 +8,8 @@ public class LevelManager : MonoBehaviour
     [Header("References")]
     [SerializeField] protected ReferenceManager references = null;
 
-    protected Action winAction;
-    protected Action loseAction;
+    public Action winAction;
+    public Action loseAction;
 
     public void ResetLevel() {
         this.references.player.ResetObject();
