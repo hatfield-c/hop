@@ -11,4 +11,23 @@ public class LevelManager : MonoBehaviour
         this.references.player.Reset();
     }
 
+    public void WinLevel() {
+        this.references.uiController.FinishLevel();
+    }
+
+    public void LoseReset() {
+        this.references.uiController.LoseLevel();
+        this.ResetLevel();
+    }
+
+    void OnEnable() {
+        this.references.goalZone.winAction += this.WinLevel;
+        this.references.player.loseAction += this.LoseReset;
+    }
+
+    void OnDisable() {
+        this.references.goalZone.winAction -= this.WinLevel;
+        this.references.player.loseAction -= this.LoseReset;
+    }
+
 }

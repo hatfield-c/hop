@@ -5,10 +5,14 @@ using UnityEngine;
 public class LevelUIController : MenuController
 {
     [Header("Level References")]
-    [SerializeField] ReferenceManager references = null;
-    [SerializeField] MenuState pauseState = null;
-    [SerializeField] MenuState playState = null;
-    [SerializeField] MenuState finishState = null;
+    [SerializeField] protected ReferenceManager references = null;
+    [SerializeField] protected MenuState pauseState = null;
+    [SerializeField] protected MenuState playState = null;
+    [SerializeField] protected MenuState finishState = null;
+    [SerializeField] protected LosePanel losePanel = null;
+
+    [Header("Parameters")]
+    [SerializeField] protected float loseFadeTime = 1f;
 
     public override void ReturnToMainMenu() {
         Time.timeScale = 1f;
@@ -30,9 +34,15 @@ public class LevelUIController : MenuController
 
     public void RestartLevel() {
         this.references.levelManager.ResetLevel();
+
         this.ChangeState(this.playState);
 
         Time.timeScale = 1f;
+    }
+
+    public void LoseLevel() {
+        this.RestartLevel();
+        this.losePanel.Display();
     }
 
     public void PauseGame() {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class Hopper : MonoBehaviour
     [Header("References")]
     [SerializeField] protected Rigidbody body = null;
     [SerializeField] protected Transform shellContainer = null;
+
+    public Action loseAction;
 
     protected bool canBounce = true;
 
@@ -71,8 +74,9 @@ public class Hopper : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
-        Debug.Log("Lose! Try again!");
         this.Reset();
+
+        this.loseAction?.Invoke();
     }
 
     void Start() {

@@ -6,6 +6,7 @@ public class ReferenceManager : MonoBehaviour
 {
     [Header("References")]
     public Hopper player;
+    public GoalZone goalZone;
     public LevelUIController uiController;
     public LevelManager levelManager;
 }

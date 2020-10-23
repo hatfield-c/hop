@@ -19,6 +19,9 @@ public class MenuController : MonoBehaviour
     protected Vector2 screenRatio;
 
     public void ChangeState(MenuState targetState) {
+        if(targetState == this.currentState) {
+            return;
+        }
 
         if(this.currentState != null) {
             this.DisableState(this.currentState);
