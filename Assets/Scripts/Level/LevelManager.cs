@@ -5,11 +5,17 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("Parameters")]
+    public float SetSuperBounce = 1f;
+
     [Header("References")]
     [SerializeField] protected ReferenceManager references = null;
 
     public Action winAction;
     public Action loseAction;
+
+    public static string superBounceTag = "super-bounce";
+    public static float superBounceFactor;
 
     public void ResetLevel() {
         foreach(AbstractResettable resettable in this.references.resetables) {
@@ -36,7 +42,9 @@ public class LevelManager : MonoBehaviour
     void Start() {
         this.references.player.loseAction = this.loseAction;
         this.references.goalZone.winAction = this.winAction;
-    }
+
+        LevelManager.superBounceFactor = this.SetSuperBounce;
+}
 
     void OnEnable() {
         this.winAction += this.WinLevel;

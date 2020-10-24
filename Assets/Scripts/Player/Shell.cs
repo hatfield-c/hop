@@ -41,13 +41,20 @@ public class Shell : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if (!parent.CanBeBounced()|| other.isTrigger || !this.isActive) {
+        if (!parent.CanBeBounced() || other.isTrigger || !this.isActive) {
             return;
         }
 
         Vector3 toParent = this.parent.transform.position - this.transform.position;
         toParent = toParent / toParent.magnitude;
-        this.parent.Bounce(toParent);
+
+        float bounceMultiplier = 1f;
+
+        if(other.tag == LevelManager.superBounceTag) {
+            bounceMultiplier = LevelManager.superBounceFactor;
+        }
+
+        this.parent.Bounce(toParent, bounceMultiplier);
 
         this.uses++;
         

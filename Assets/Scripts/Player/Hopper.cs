@@ -26,7 +26,7 @@ public class Hopper : AbstractResettable {
     protected Vector3 startPosition;
     protected List<Shell> shellList = new List<Shell>();
 
-    public void Bounce(Vector3 dir) {
+    public void Bounce(Vector3 dir, float multiplier = 1) {
         if(!this.canBounce) {
             return;
         }
@@ -34,7 +34,7 @@ public class Hopper : AbstractResettable {
         this.body.velocity = Vector3.zero;
         this.body.angularVelocity = Vector3.zero;
 
-        this.body.AddForce(dir * this.bounceForce);
+        this.body.AddForce(dir * this.bounceForce * multiplier);
         this.canBounce = false;
 
         LeanTween.delayedCall(

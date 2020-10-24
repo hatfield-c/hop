@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1a89bcc50312b40bf8d9475a7c8048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SetSuperBounce: 2
   references: {fileID: 0}
