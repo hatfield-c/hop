@@ -11,6 +11,8 @@ public class MenuController : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] protected List<MenuState> menuStates = new List<MenuState>();
     [SerializeField] protected float animateTime = 1f;
+    [SerializeField] protected LeanTweenType easeIn = LeanTweenType.linear;
+    [SerializeField] protected LeanTweenType easeOut = LeanTweenType.linear;
 
     protected MenuState currentState = null;
 
@@ -38,9 +40,11 @@ public class MenuController : MonoBehaviour
                             this.EnableState(targetState);
                             this.currentState = targetState;
                             this.currentState.OnTransitionTo();
-                        }
+                        },
+                        this.easeIn
                     );
-                }
+                },
+                this.easeOut
             );
 
         } else {
@@ -51,7 +55,8 @@ public class MenuController : MonoBehaviour
                 () => {
                     this.EnableState(targetState);
                     this.currentState = targetState;
-                }
+                },
+                this.easeIn
             );
         }
 
@@ -103,7 +108,8 @@ public class MenuController : MonoBehaviour
         RectTransform menuTransform, 
         Vector3 start, 
         Vector3 end, 
-        System.Action followUp = null
+        System.Action followUp = null,
+        LeanTweenType easeType = LeanTweenType.linear
     ) {
         if(followUp == null) {
             followUp = this.Empty;
@@ -115,7 +121,7 @@ public class MenuController : MonoBehaviour
             menuTransform,
             end,
             this.animateTime
-        ).setOnComplete(followUp).setIgnoreTimeScale(true);
+        ).setOnComplete(followUp).setEase(easeType).setIgnoreTimeScale(true);
     }
 
     protected void Empty() { }

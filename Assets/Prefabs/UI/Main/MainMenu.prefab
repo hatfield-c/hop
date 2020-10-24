@@ -18,7 +18,9 @@ MonoBehaviour:
   - {fileID: 2290900956937010872}
   - {fileID: 7380814290311790684}
   - {fileID: 3686678825596815437}
-  animateTime: 0.15
+  animateTime: 0.45
+  easeIn: 27
+  easeOut: 26
   stageComplete: {fileID: 7380814290311790684}
   gameComplete: {fileID: 3686678825596815437}
 --- !u!1001 &1533501928413415757

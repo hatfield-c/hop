@@ -115,6 +115,8 @@ MonoBehaviour:
   canvasRect: {fileID: 567290305298259244}
   menuStates: []
   animateTime: 0.15
+  easeIn: 27
+  easeOut: 26
 --- !u!1 &6525002450161162181
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,9 @@ MonoBehaviour:
   - {fileID: 3308969054894046814}
   - {fileID: 8620436578857179777}
   - {fileID: 3281208759791790826}
-  animateTime: 0.15
+  animateTime: 0.3
+  easeIn: 27
+  easeOut: 26
   references: {fileID: 0}
   pauseState: {fileID: 8620436578857179777}
   playState: {fileID: 3308969054894046814}

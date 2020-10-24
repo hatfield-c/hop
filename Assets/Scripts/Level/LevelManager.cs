@@ -19,6 +19,10 @@ public class LevelManager : MonoBehaviour
 
     public void ResetLevel() {
         foreach(AbstractResettable resettable in this.references.resetables) {
+            if(resettable == null) {
+                continue;
+            }
+
             resettable.ResetObject();
         }
     }
