@@ -461,7 +461,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 6.7110867e+22, y: 7.1546075e+22, z: 1.1577061e+27,
+    w: 1.707776e+19}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1963,7 +1964,7 @@ PrefabInstance:
     - target: {fileID: 1321176469438383436, guid: ecaef3102510bcd41abab47b3de71763,
         type: 3}
       propertyPath: resetables.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1321176469438383436, guid: ecaef3102510bcd41abab47b3de71763,
         type: 3}
@@ -1993,6 +1994,11 @@ PrefabInstance:
     - target: {fileID: 1321176469438383436, guid: ecaef3102510bcd41abab47b3de71763,
         type: 3}
       propertyPath: resetables.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321176469438383436, guid: ecaef3102510bcd41abab47b3de71763,
+        type: 3}
+      propertyPath: resetables.Array.data[1]
       value: 
       objectReference: {fileID: 1424956421}
     - target: {fileID: 4775740315953783299, guid: ecaef3102510bcd41abab47b3de71763,
