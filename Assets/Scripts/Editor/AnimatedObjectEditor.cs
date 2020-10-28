@@ -31,7 +31,8 @@ public class AnimatedObjectEditor : Editor
         helpMsg += "  - Quint\n";
         helpMsg += "  - Circ\n";
         helpMsg += "  - Cubic\n";
-        helpMsg += "  - Expo\n";
+        helpMsg += "  - Expo\n\n";
+        helpMsg += "Visit easings.net for help choosing the right easing.";
         EditorGUILayout.HelpBox(helpMsg, MessageType.Info);
 
         if (GUI.changed) {

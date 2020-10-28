@@ -35,7 +35,7 @@ public class AnimatedObject : AbstractResettable
 
     public void StartAnimation() {
         this.animate = true;
-        this.ActivateAnimation();
+        this.ResetObject();
     }
 
     protected void ActivateAnimation() {
