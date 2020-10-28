@@ -19,7 +19,10 @@ public class SkyboxWall : MonoBehaviour
         AnimatedObject cloudBuffer;
         foreach (Transform cloudTransform in this.cloudContainer) {
             cloudBuffer = cloudTransform.gameObject.GetComponent<AnimatedObject>();
-            cloudBuffer.StopAnimation();
+
+            if (cloudBuffer != null) {
+                cloudBuffer.StopAnimation();
+            }
         }
 
         LeanTween.value(
