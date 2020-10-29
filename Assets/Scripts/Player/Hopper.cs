@@ -9,7 +9,7 @@ public class Hopper : AbstractResettable {
     [SerializeField] protected int uses = 3;
     [SerializeField] protected float turnForce = 0.1f;
     [SerializeField] protected float bounceForce = 1f;
-    [SerializeField] protected float cooldown = 0.02f;
+    [SerializeField] protected float cooldown = 0.08f;
 
     [Header("Metadata")]
     [SerializeField] protected Sprite previewImage = null;

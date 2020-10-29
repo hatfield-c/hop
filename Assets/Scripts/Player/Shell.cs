@@ -40,7 +40,7 @@ public class Shell : MonoBehaviour
         this.meshRenderer.material = this.usesMats[uses];
     }
 
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerStay(Collider other) {
         if (!parent.CanBeBounced() || other.isTrigger || !this.isActive) {
             return;
         }
