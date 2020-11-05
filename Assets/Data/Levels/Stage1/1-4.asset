@@ -15,7 +15,7 @@ MonoBehaviour:
   color: {r: 0.21960784, g: 0.40392157, b: 0.8392157, a: 1}
   number: 4
   stage: 0
-  scene: {fileID: 102900000, guid: fde15abb0ddc3b84496bd0bd9b523e64, type: 3}
+  sceneName: 1-4
   hazards:
     death: 0
     bounce: 1

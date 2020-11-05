@@ -28,13 +28,13 @@ public class LevelObject : ScriptableObject
 
     [Header("Parameters")]
     public Session.Stages stage;
-    public Object scene;
+    public string sceneName = "";
     public HazardTypes hazards = new HazardTypes();
     public LevelObject nextLevel;
     public bool isLastLevel = false;
 
     public string GetSceneName() {
-        return ((SceneAsset)this.scene).name;
+        return this.sceneName;
     }
 
 }
