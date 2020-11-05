@@ -22,6 +22,7 @@ public class Hopper : AbstractResettable {
     public Action loseAction = null;
 
     protected bool canBounce = true;
+    protected PlayerInput playerInput = new PlayerInput();
 
     protected Vector3 startPosition;
     protected List<Shell> shellList = new List<Shell>();
@@ -101,19 +102,26 @@ public class Hopper : AbstractResettable {
     void Update()
     {
         if (Input.GetKey(KeyCode.W)) {
-            this.body.AddTorque(Vector3.right * turnForce);
+            this.playerInput.SetVertical(1);
         }
         if (Input.GetKey(KeyCode.S)) {
-            this.body.AddTorque(-Vector3.right * turnForce);
+            this.playerInput.SetVertical(-1);
         }
         if (Input.GetKey(KeyCode.A)) {
-            this.body.AddTorque(Vector3.forward * turnForce);
+            this.playerInput.SetHorizontal(1);
         }
         if (Input.GetKey(KeyCode.D)) {
-            this.body.AddTorque(-Vector3.forward * turnForce);
+            this.playerInput.SetHorizontal(-1);
         }
         if (Input.GetKey(KeyCode.Escape)) {
             Application.Quit();
         }
+    }
+
+    void FixedUpdate() {
+        this.body.AddTorque(Vector3.right * this.turnForce * this.playerInput.GetVertical());
+        this.body.AddTorque(Vector3.forward * this.turnForce * this.playerInput.GetHorizontal());
+
+        this.playerInput.Clear();
     }
 }

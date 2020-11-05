@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uses: 3
-  turnForce: 0.1
+  turnForce: 0.4
   bounceForce: 1000
   cooldown: 0.5
   previewImage: {fileID: 21300000, guid: 2bd0edc42f18d294e9b32084209d4e40, type: 3}
