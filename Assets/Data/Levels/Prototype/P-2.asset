@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e694e12c238304891af6198c12109c, type: 3}
+  m_Name: P-2
+  m_EditorClassIdentifier: 
+  color: {r: 0.05882353, g: 0.7254902, b: 0.69411767, a: 1}
+  number: 2
+  stage: 0
+  scene: {fileID: 102900000, guid: 700f61b81ee3f1a47a01661b9f0bfb0e, type: 3}
+  hazards:
+    death: 0
+    bounce: 0
+    breakable: 0
+    moving: 0
+  nextLevel: {fileID: 11400000, guid: 0fb331093f3573640840b2436e665d2d, type: 2}
+  isLastLevel: 0

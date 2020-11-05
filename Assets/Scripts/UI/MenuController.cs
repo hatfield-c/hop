@@ -66,6 +66,10 @@ public class MenuController : MonoBehaviour
         Session.ReturnToMainMenu(cause);
     }
 
+    public void ExitGame() {
+        Application.Quit();
+    }
+
     void Awake() {
         this.OnAwake();
     }
