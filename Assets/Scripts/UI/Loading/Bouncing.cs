@@ -8,13 +8,15 @@ public class Bouncing : MonoBehaviour
     [SerializeField] protected float moveTime = 1f;
     [SerializeField] protected List<Transform> path = new List<Transform>();
 
+    protected int tweenId = -1;
+
     void Start()
     {
         this.GoRight();
     }
 
     void GoRight() {
-        LeanTween.move(
+        this.tweenId = LeanTween.move(
             this.gameObject,
             this.path[1],
             this.moveTime
@@ -22,11 +24,11 @@ public class Bouncing : MonoBehaviour
             () => {
                 this.GoLeft();
             }
-        ).setIgnoreTimeScale(true);
+        ).setIgnoreTimeScale(true).id;
     }
 
     void GoLeft() {
-        LeanTween.move(
+        this.tweenId = LeanTween.move(
             this.gameObject,
             this.path[0], 
             this.moveTime
@@ -34,7 +36,10 @@ public class Bouncing : MonoBehaviour
             () => {
                 this.GoRight();
             }    
-        ).setIgnoreTimeScale(true);
+        ).setIgnoreTimeScale(true).id;
     }
 
+    void OnDestroy() {
+        LeanTween.cancel(this.tweenId);
+    }
 }
