@@ -8,7 +8,7 @@ public class WorldAcademy : MonoBehaviour {
     [Header("Parameters")]
     [SerializeField] protected CellData cellData = new CellData();
     [SerializeField] protected SpaceData spaceData = new SpaceData();
-    [SerializeField] protected GameObject geometryContainer = null;
+    [SerializeField] protected int voxelCount = 1;
 
     [Header("References")]
     [SerializeField] protected List<WorldAgent> agentList = new List<WorldAgent>();
@@ -16,6 +16,8 @@ public class WorldAcademy : MonoBehaviour {
 
     public static WorldAgent currentAgent;
 
+
+    protected int gensCompleted = 0;
     protected int typesCompleted = 0;
 
     public static void LearnStep() {
@@ -25,10 +27,10 @@ public class WorldAcademy : MonoBehaviour {
 
     void Awake()
     {
-        Academy.Instance.AutomaticSteppingEnabled = false;
         Academy.Instance.OnEnvironmentReset += this.EnvironmentReset;
-
+        Academy.Instance.AutomaticSteppingEnabled = false;
         this.PreprocessAgents();
+
         this.builderUi.ChangeState(BuilderUI.BuildStates.generationFinished);
     }
 
@@ -55,8 +57,12 @@ public class WorldAcademy : MonoBehaviour {
         }
 
         this.typesCompleted = 0;
-        //this.ShuffleAgents();
+        this.ShuffleAgents();
         this.NextTerrainType();
+
+        this.gensCompleted++;
+
+        Debug.Log($"Generation: {this.gensCompleted}");
     }
 
     protected void HasFinishedGeneration() {
@@ -74,8 +80,7 @@ public class WorldAcademy : MonoBehaviour {
 
     protected void PreprocessAgents() {
         for (int i = 0; i < this.agentList.Count; i++) {
-            this.agentList[i].Init(this.cellData, this.spaceData, this.builderUi);
-            this.agentList[i].gameObject.SetActive(false);
+            this.agentList[i].Init(this.cellData, this.spaceData, this.voxelCount, this.builderUi);
         }
     }
 
@@ -90,7 +95,7 @@ public class WorldAcademy : MonoBehaviour {
     }
 
     void EnvironmentReset() {
-
+        
     }
 
     [System.Serializable]
@@ -98,7 +103,7 @@ public class WorldAcademy : MonoBehaviour {
         public int xCells;
         public int yCells;
         public int zCells;
-    }
+    }    
 
     [System.Serializable]
     public struct SpaceData {
@@ -106,4 +111,6 @@ public class WorldAcademy : MonoBehaviour {
         public float maxY;
         public float maxZ;
     }
+
+    
 }

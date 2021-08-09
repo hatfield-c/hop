@@ -1109,6 +1109,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldAcademy
       objectReference: {fileID: 0}
+    - target: {fileID: 2411877340805428689, guid: 13258103926df324d94794b936848417,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049325351341638894, guid: 13258103926df324d94794b936848417,
+        type: 3}
+      propertyPath: totalCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049325351341638894, guid: 13258103926df324d94794b936848417,
+        type: 3}
+      propertyPath: stepCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838243488058562776, guid: 13258103926df324d94794b936848417,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4617938464945652640, guid: 13258103926df324d94794b936848417,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1172,7 +1192,22 @@ PrefabInstance:
     - target: {fileID: 4947778500562473797, guid: 13258103926df324d94794b936848417,
         type: 3}
       propertyPath: stepCount
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806989163198545484, guid: 13258103926df324d94794b936848417,
+        type: 3}
+      propertyPath: totalCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806989163198545484, guid: 13258103926df324d94794b936848417,
+        type: 3}
+      propertyPath: stepCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611078684591214451, guid: 13258103926df324d94794b936848417,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13258103926df324d94794b936848417, type: 3}

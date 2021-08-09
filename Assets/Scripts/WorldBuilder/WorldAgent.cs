@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
@@ -23,6 +24,10 @@ public class WorldAgent : Agent
     protected WorldAcademy.CellData cellData;
     protected WorldAcademy.SpaceData spaceData;
     protected BuilderUI builderUi;
+    protected int voxelCount;
+
+    protected Vector3 voxelSize = new Vector3();
+    protected CellSize cellSize = new CellSize();
 
     protected int currentCount = 0;
     protected int currentTotal = 0;
@@ -68,7 +73,14 @@ public class WorldAgent : Agent
     public override void CollectObservations(VectorSensor sensor) {
         base.CollectObservations(sensor);
 
-        sensor.AddObservation(0f);
+        for(int x = 0; x < this.cellData.xCells; x++) {
+            for(int y = 0; y < this.cellData.yCells; y++) {
+                for(int z = 0; z < this.cellData.zCells; z++) {
+                    float fill = this.CalculateCellFill(x, y, z);
+                    sensor.AddObservation(fill);
+                }
+            }
+        }
     }
 
     public override void OnEpisodeBegin() {
@@ -89,10 +101,19 @@ public class WorldAgent : Agent
         }
     }
 
-    public void Init(WorldAcademy.CellData cellData, WorldAcademy.SpaceData spaceData, BuilderUI builderUi) {
+    public void Init(WorldAcademy.CellData cellData, WorldAcademy.SpaceData spaceData, int voxelCount, BuilderUI builderUi) {
         this.cellData = cellData;
         this.spaceData = spaceData;
+        this.voxelCount = voxelCount;
         this.builderUi = builderUi;
+
+        this.cellSize.x = (2 * this.spaceData.maxX) / this.cellData.xCells;
+        this.cellSize.y = (2 * this.spaceData.maxY) / this.cellData.yCells;
+        this.cellSize.z = (2 * this.spaceData.maxZ) / this.cellData.zCells;
+
+        this.voxelSize.x = this.cellSize.x / this.voxelCount;
+        this.voxelSize.y = this.cellSize.y / this.voxelCount;
+        this.voxelSize.z = this.cellSize.z / this.voxelCount;
     }
 
     public bool IsFinished() {
@@ -103,10 +124,41 @@ public class WorldAgent : Agent
         this.EndEpisode();
     }
 
+    protected float CalculateCellFill(int cellX, int cellY, int cellZ) {
+        Vector3 cell = new Vector3(
+            (cellX * this.cellSize.x) - this.spaceData.maxX,
+            (cellY * this.cellSize.y) - this.spaceData.maxY,
+            (cellZ * this.cellSize.z) - this.spaceData.maxZ
+        );
+        Vector3 voxel = new Vector3();
+
+        bool collision = false;
+        float collisionCount = 0;
+        float maxCollisions = this.voxelCount * this.voxelCount * this.voxelCount;
+
+        for (int xVox = 0; xVox < this.voxelCount; xVox++) {
+            for (int yVox = 0; yVox < this.voxelCount; yVox++) {
+                for (int zVox = 0; zVox < this.voxelCount; zVox++) {
+                    voxel.x = (xVox * this.voxelSize.x) + cell.x + (this.voxelSize.x / 2);
+                    voxel.y = (yVox * this.voxelSize.y) + cell.y + (this.voxelSize.y / 2);
+                    voxel.z = (zVox * this.voxelSize.z) + cell.z + (this.voxelSize.z / 2);
+
+                    collision = Physics.CheckBox(voxel, (this.voxelSize / 2));
+
+                    if (collision) {
+                        collisionCount++;
+                    }
+                }
+            }
+        }
+
+        return collisionCount / maxCollisions;
+    }
+
     protected void ApplyPosition(GameObject prefab, float[] vectorAction) {
-        float x = (vectorAction[0] + 1) / 2;
-        float y = (vectorAction[1] + 1) / 2;
-        float z = (vectorAction[2] + 1) / 2;
+        float x = vectorAction[0];
+        float y = vectorAction[1];
+        float z = vectorAction[2];
 
         prefab.transform.position = new Vector3(
             x * this.spaceData.maxX,
@@ -182,5 +234,11 @@ public class WorldAgent : Agent
     [System.Serializable]
     public struct PermutationParameters {
         public float maxScale;
+    }
+
+    public struct CellSize {
+        public float x;
+        public float y;
+        public float z;
     }
 }

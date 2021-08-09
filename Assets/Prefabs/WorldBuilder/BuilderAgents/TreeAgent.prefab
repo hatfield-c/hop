@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: scaling
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1451124714239292576, guid: 3acd118c28723b0419b5646bb021b1f3,
+        type: 3}
+      propertyPath: permutationParameters.maxScale
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1638718937933281054, guid: 3acd118c28723b0419b5646bb021b1f3,
         type: 3}
       propertyPath: m_LocalPosition.x
